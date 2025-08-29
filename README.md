@@ -85,22 +85,32 @@ VITE_API_URL=http://localhost:3001/api
 
 ## 🏗️ Branch Structure
 
-- **`main`** - Contains both frontend and backend folders
-- **`frontend`** - Contains only the frontend application
-- **`backend`** - Contains only the backend API
+- **`main`** - Complete monorepo with both frontend and backend (development)
+- **`frontend-setup`** - Frontend-only branch for Vercel deployment
+- **`backend-setup`** - Backend-only branch for Render deployment
 
 ## 🛠️ Development
 
+### Monorepo Commands (Root Level)
+```bash
+npm run dev          # Start both frontend and backend
+npm run build        # Build both applications
+npm run install:all  # Install dependencies for all packages
+npm run clean        # Clean all node_modules
+npm run lint         # Lint both applications
+```
+
 ### Backend Commands
 ```bash
+cd backend
 npm run dev          # Start development server
 npm run build        # Build for production
 npm run start        # Start production server
-npm run clean        # Clean build files
 ```
 
 ### Frontend Commands
 ```bash
+cd frontend
 npm run dev          # Start development server
 npm run build        # Build for production
 npm run preview      # Preview production build
