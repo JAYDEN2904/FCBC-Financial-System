@@ -121,6 +121,26 @@ app.get('/health', (req: Request, res: Response) => {
   });
 });
 
+// Root route
+app.get('/', (req: Request, res: Response) => {
+  res.json({
+    message: 'FCBC Financial System API',
+    version: '1.0.1',
+    status: 'running',
+    endpoints: {
+      auth: '/api/auth',
+      members: '/api/members',
+      payments: '/api/payments',
+      donations: '/api/donations',
+      expenses: '/api/expenses',
+      reminders: '/api/reminders',
+      dashboard: '/api/dashboard',
+      reports: '/api/reports',
+      upload: '/api/upload'
+    }
+  });
+});
+
 // API routes
 app.use('/api/auth', authRoutes);
 app.use('/api/members', membersRoutes);
