@@ -2,14 +2,28 @@
 
 ## Overview
 This guide covers deploying the FCBC Financial System with:
-- **Backend**: Deployed on Render
-- **Frontend**: Deployed on Vercel
+- **Backend**: Deployed on Render from `backend-setup` branch
+- **Frontend**: Deployed on Vercel from `frontend-setup` branch
+- **Development**: Full monorepo on `main` branch
 
 ## Prerequisites
 - GitHub repository with your code
 - Supabase project with database setup
 - Render account
 - Vercel account
+
+## Branch Structure
+
+The repository is organized into three main branches:
+
+- **`main`** - Complete monorepo with both frontend and backend (for development)
+- **`frontend-setup`** - Frontend-only branch (for Vercel deployment)
+- **`backend-setup`** - Backend-only branch (for Render deployment)
+
+### Development Workflow
+1. **Develop on `main`** - Work with the complete codebase
+2. **Deploy from specific branches** - Use deployment branches for production
+3. **Sync changes** - Push updates to deployment branches when ready
 
 ## Backend Deployment (Render)
 
@@ -23,7 +37,7 @@ The backend is already configured with:
 1. Go to [Render Dashboard](https://dashboard.render.com)
 2. Click "New +" → "Web Service"
 3. Connect your GitHub repository
-4. Select the `backend` folder as the root directory
+4. **Select the `backend-setup` branch** (not the folder)
 5. Configure the service:
    - **Name**: `fcbc-financial-backend`
    - **Environment**: `Node`
@@ -65,9 +79,10 @@ The frontend is configured with:
 1. Go to [Vercel Dashboard](https://vercel.com/dashboard)
 2. Click "New Project"
 3. Import your GitHub repository
-4. Configure the project:
+4. **Select the `frontend-setup` branch**
+5. Configure the project:
    - **Framework Preset**: Vite
-   - **Root Directory**: `frontend`
+   - **Root Directory**: `/` (root of the branch)
    - **Build Command**: `npm run build`
    - **Output Directory**: `dist`
 
