@@ -4,7 +4,6 @@ import {
   LayoutDashboard, 
   Users, 
   CreditCard, 
-  FileText, 
   Bell,
   Wallet
 } from 'lucide-react';

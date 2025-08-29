@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Bell, MessageSquare, Send, Settings2, Calendar, Users, CheckCircle, XCircle, Loader2 } from 'lucide-react';
+import { Bell, MessageSquare, Send, Calendar, Users, CheckCircle, XCircle, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Badge } from '@/components/ui/badge';
+// import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -92,7 +92,7 @@ export function Reminders() {
     membersOwing: membersOwing.length,
   };
 
-  const handleSendReminder = async (memberId: string, type: 'pre-due' | 'overdue') => {
+  const handleSendReminder = async (_memberId: string, _type: 'pre-due' | 'overdue') => {
     try {
       // This would integrate with a real SMS service
       toast.success('Reminder sent successfully!');

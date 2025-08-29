@@ -87,7 +87,7 @@ const StatsCards = ({ stats }: { stats: DashboardStats }) => {
 
 // Chart components
 const MonthlyCollectionsChart = ({ data }: { data: any[] }) => {
-  const COLORS = ['#3B82F6', '#8B5CF6', '#10B981', '#F59E0B', '#EF4444', '#06B6D4'];
+  // const COLORS = ['#3B82F6', '#8B5CF6', '#10B981', '#F59E0B', '#EF4444', '#06B6D4'];
 
   return (
     <Card>
@@ -119,7 +119,7 @@ const MonthlyCollectionsChart = ({ data }: { data: any[] }) => {
 };
 
 const PaymentMethodsChart = ({ data }: { data: any[] }) => {
-  const COLORS = ['#3B82F6', '#8B5CF6'];
+  // const COLORS = ['#3B82F6', '#8B5CF6'];
 
   return (
     <Card>
@@ -139,9 +139,10 @@ const PaymentMethodsChart = ({ data }: { data: any[] }) => {
               fill="#8884d8"
               dataKey="value"
             >
-              {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-              ))}
+              {data.map((_, index) => {
+                const colors = ['#3B82F6', '#8B5CF6', '#10B981', '#F59E0B', '#EF4444', '#06B6D4'];
+                return <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />;
+              })}
             </Pie>
             <Tooltip formatter={(value: any) => [`${value}%`, 'Percentage']} />
           </PieChart>

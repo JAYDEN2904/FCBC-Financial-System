@@ -10,10 +10,10 @@ import {
   Heart,
   DollarSign,
   PieChart,
-  AlertCircle,
-  CheckCircle,
-  Edit,
-  Trash2,
+  // AlertCircle,
+  // CheckCircle,
+  // Edit,
+  // Trash2,
   Loader2
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -22,13 +22,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Textarea } from '@/components/ui/textarea';
+// import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+// import { Label } from '@/components/ui/label';
+// import { Input } from '@/components/ui/input';
+// import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+// import { Textarea } from '@/components/ui/textarea';
 import { EmptyState } from '@/components/ui/empty-state';
-import { apiClient } from '@/lib/api';
+// import { apiClient } from '@/lib/api';
 import { toast } from 'sonner';
 
 // Loading component

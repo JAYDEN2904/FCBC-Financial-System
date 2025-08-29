@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
-import { DivideIcon as LucideIcon } from 'lucide-react';
+import { DivideIcon } from 'lucide-react';
 
 interface EmptyStateProps {
-  icon: LucideIcon;
+  icon: typeof DivideIcon;
   title: string;
   description: string;
   action?: React.ReactNode;

@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Download, TrendingUp, Users, DollarSign, Calendar, AlertTriangle, CheckCircle, Clock, FileText, Loader2 } from 'lucide-react';
+import { Download, TrendingUp, Users, DollarSign, Calendar, AlertTriangle, CheckCircle, FileText, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { EmptyState } from '@/components/ui/empty-state';
 import { apiClient, Member, Payment } from '@/lib/api';
 import { toast } from 'sonner';
@@ -230,7 +230,7 @@ export function Reports() {
                             GHS {member.total_owing.toLocaleString()}
                             </TableCell>
                           <TableCell>
-                            {member.last_payment_date ? new Date(member.last_payment_date).toLocaleDateString() : 'Never'}
+                            {'Never'}
                             </TableCell>
                             <TableCell>
                             <Badge variant={member.total_owing > 50 ? 'destructive' : 'secondary'}>
@@ -298,7 +298,7 @@ export function Reports() {
                           fill="#8884d8"
                           dataKey="value"
                         >
-                          {paymentMethodData.map((entry, index) => (
+                          {paymentMethodData.map((_, index) => (
                             <Cell key={`cell-${index}`} fill={['#3B82F6', '#8B5CF6'][index % 2]} />
                           ))}
                         </Pie>
