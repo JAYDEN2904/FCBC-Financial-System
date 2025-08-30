@@ -202,7 +202,7 @@ class ApiClient {
 
   // Auth endpoints
   async login(credentials: LoginRequest): Promise<ApiResponse<AuthResponse>> {
-    const response = await this.post<AuthResponse>('/auth/login', credentials);
+    const response = await this.post<AuthResponse>('/api/auth/login', credentials);
     if (response.success && response.data?.token) {
       this.setToken(response.data.token);
     }
@@ -210,7 +210,7 @@ class ApiClient {
   }
 
   async register(userData: RegisterRequest): Promise<ApiResponse<AuthResponse>> {
-    const response = await this.post<AuthResponse>('/auth/register', userData);
+    const response = await this.post<AuthResponse>('/api/auth/register', userData);
     if (response.success && response.data?.token) {
       this.setToken(response.data.token);
     }
@@ -218,13 +218,13 @@ class ApiClient {
   }
 
   async logout(): Promise<ApiResponse> {
-    const response = await this.post('/auth/logout');
+    const response = await this.post('/api/auth/logout');
     this.setToken(null);
     return response;
   }
 
   async getCurrentUser(): Promise<ApiResponse<AuthResponse['user']>> {
-    return this.get<AuthResponse['user']>('/auth/me');
+    return this.get<AuthResponse['user']>('/api/auth/me');
   }
 
   // Members endpoints
@@ -240,24 +240,24 @@ class ApiClient {
     if (params?.page) queryParams.append('page', params.page.toString());
     if (params?.limit) queryParams.append('limit', params.limit.toString());
 
-    const endpoint = `/members${queryParams.toString() ? `?${queryParams.toString()}` : ''}`;
+    const endpoint = `/api/members${queryParams.toString() ? `?${queryParams.toString()}` : ''}`;
     return this.get<Member[]>(endpoint) as Promise<PaginatedResponse<Member>>;
   }
 
   async getMember(id: string): Promise<ApiResponse<Member>> {
-    return this.get<Member>(`/members/${id}`);
+    return this.get<Member>(`/api/members/${id}`);
   }
 
   async createMember(member: CreateMemberRequest): Promise<ApiResponse<Member>> {
-    return this.post<Member>('/members', member);
+    return this.post<Member>('/api/members', member);
   }
 
   async updateMember(id: string, member: Partial<CreateMemberRequest>): Promise<ApiResponse<Member>> {
-    return this.put<Member>(`/members/${id}`, member);
+    return this.put<Member>(`/api/members/${id}`, member);
   }
 
   async deleteMember(id: string): Promise<ApiResponse> {
-    return this.delete(`/members/${id}`);
+    return this.delete(`/api/members/${id}`);
   }
 
   // Payments endpoints
@@ -277,25 +277,25 @@ class ApiClient {
     if (params?.page) queryParams.append('page', params.page.toString());
     if (params?.limit) queryParams.append('limit', params.limit.toString());
 
-    const endpoint = `/payments${queryParams.toString() ? `?${queryParams.toString()}` : ''}`;
+    const endpoint = `/api/payments${queryParams.toString() ? `?${queryParams.toString()}` : ''}`;
     return this.get<Payment[]>(endpoint) as Promise<PaginatedResponse<Payment>>;
   }
 
   async createPayment(payment: CreatePaymentRequest): Promise<ApiResponse<Payment>> {
-    return this.post<Payment>('/payments', payment);
+    return this.post<Payment>('/api/payments', payment);
   }
 
   // Dashboard endpoints
   async getDashboardStats(): Promise<ApiResponse<DashboardStats>> {
-    return this.get<DashboardStats>('/dashboard/stats');
+    return this.get<DashboardStats>('/api/dashboard/stats');
   }
 
   async getMonthlyCollections(): Promise<ApiResponse<{ chartData: any[] }>> {
-    return this.get<{ chartData: any[] }>('/dashboard/charts/monthly-collections');
+    return this.get<{ chartData: any[] }>('/api/dashboard/charts/monthly-collections');
   }
 
   async getPaymentMethods(): Promise<ApiResponse<{ paymentMethodData: any[] }>> {
-    return this.get<{ paymentMethodData: any[] }>('/dashboard/charts/payment-methods');
+    return this.get<{ paymentMethodData: any[] }>('/api/dashboard/charts/payment-methods');
   }
 }
 
