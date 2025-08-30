@@ -149,16 +149,21 @@ export function Payments() {
     const months = [];
     const currentDate = new Date();
     
-    // Generate past 6 months and next 6 months
-    for (let i = -6; i <= 6; i++) {
-      const date = new Date(currentDate.getFullYear(), currentDate.getMonth() + i, 1);
+    // Start from January 2025 and generate 12 months from there
+    const startYear = 2025;
+    const startMonth = 0; // January (0-indexed)
+    
+    for (let i = 0; i < 12; i++) {
+      const date = new Date(startYear, startMonth + i, 1);
       const monthStr = date.toISOString().slice(0, 7);
+      const currentMonthStr = currentDate.toISOString().slice(0, 7);
+      
       months.push({
         value: monthStr,
         label: date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }),
-        isPast: i < 0,
-        isCurrent: i === 0,
-        isFuture: i > 0
+        isPast: monthStr < currentMonthStr,
+        isCurrent: monthStr === currentMonthStr,
+        isFuture: monthStr > currentMonthStr
       });
     }
     return months;
